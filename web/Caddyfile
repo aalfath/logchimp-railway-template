@@ -1,0 +1,31 @@
+{
+	admin off
+	persist_config off
+	auto_https off
+	log {
+		format json
+	}
+	servers {
+		trusted_proxies static private_ranges 100.0.0.0/8
+	}
+}
+
+:{$PORT:3000} {
+	log {
+		format json
+	}
+	encode gzip
+
+	# LogChimp API, reached over the private network
+	handle /api* {
+		reverse_proxy {$LOGCHIMP_API_UPSTREAM}
+	}
+
+	# Static Vue app with client-side routing
+	handle {
+		rewrite /health /index.html
+		root * /app/dist
+		try_files {path} /index.html
+		file_server
+	}
+}
