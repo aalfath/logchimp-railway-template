@@ -1,3 +1,5 @@
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/logchimp-1?utm_medium=integration&utm_source=button&utm_campaign=logchimp)
+
 # LogChimp on Railway
 
 Railway template for [LogChimp](https://github.com/logchimp/logchimp), an open-source tool for collecting customer feedback, voting on feature requests and publishing a roadmap.
